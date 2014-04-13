@@ -1,0 +1,10 @@
+﻿<div>
+	Attraction: <input type="text" ng-model="NameFilter" /> {{NameFilter}}
+	<br />
+	<h3>Attractions:</h3>
+	<ul>
+		<li ng-repeat="a in Attraction | filter:NameFilter |  orderBy:'Name'">{{a.Name}}</li>
+	</ul>
+	<br/>
+	<a href="#/parks">Parks</a>
+</div>

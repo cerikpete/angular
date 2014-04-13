@@ -1,0 +1,11 @@
+# Standard VS.NET and ReSharper Foo
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+_ReSharper.*
+*.cache
+* Thumbs.db
+*.log
+*.swp
+node_modules
