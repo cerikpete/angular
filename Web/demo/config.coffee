@@ -3,7 +3,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider
 		.when '/',
 			controller: 'AttractionCtrl',
-			templateUrl:'views/attractions.html'		
+			templateUrl:'views/attractions.html'
 		.when '/parks',
 			templateUrl:'views/parks.html'		
 		.otherwise
