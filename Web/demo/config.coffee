@@ -11,9 +11,8 @@ app.config ['$routeProvider', ($routeProvider) ->
 ]
 
 app.factory 'AttractionFactory', ->
-	@getAttractions = ->
+	getAttractions: ->
 		return [{ Name: 'Space Mountain' }, { Name: 'Ariel' }, { Name: 'Star Tours' }]
-	@
 
 app.controller 'AttractionCtrl', ['$scope', 'AttractionFactory', ($scope, factory) ->
 	$scope.Attraction = factory.getAttractions();	

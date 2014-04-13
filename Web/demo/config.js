@@ -19,18 +19,19 @@
   ]);
 
   app.factory('AttractionFactory', function() {
-    this.getAttractions = function() {
-      return [
-        {
-          Name: 'Space Mountain'
-        }, {
-          Name: 'Ariel'
-        }, {
-          Name: 'Star Tours'
-        }
-      ];
+    return {
+      getAttractions: function() {
+        return [
+          {
+            Name: 'Space Mountain'
+          }, {
+            Name: 'Ariel'
+          }, {
+            Name: 'Star Tours'
+          }
+        ];
+      }
     };
-    return this;
   });
 
   app.controller('AttractionCtrl', [
