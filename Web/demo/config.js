@@ -18,25 +18,23 @@
     }
   ]);
 
-  app.factory('AttractionFactory', function() {
-    return {
-      getAttractions: function() {
-        return [
-          {
-            Name: 'Space Mountain'
-          }, {
-            Name: 'Ariel'
-          }, {
-            Name: 'Star Tours'
-          }
-        ];
-      }
-    };
-  });
+  app.factory('AttractionFactory', [
+    '$http', function($http) {
+      return {
+        getAttractions: function() {
+          return $http.get('attractions.json').then(function(result) {
+            return result.data;
+          });
+        }
+      };
+    }
+  ]);
 
   app.controller('AttractionCtrl', [
     '$scope', 'AttractionFactory', function($scope, factory) {
-      return $scope.Attraction = factory.getAttractions();
+      return factory.getAttractions().then(function(result) {
+        return $scope.Attraction = result;
+      });
     }
   ]);
 

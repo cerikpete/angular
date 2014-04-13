@@ -10,10 +10,13 @@ app.config ['$routeProvider', ($routeProvider) ->
 			redirectTo: '/'
 ]
 
-app.factory 'AttractionFactory', ->
-	getAttractions: ->
-		[{ Name: 'Space Mountain' }, { Name: 'Ariel' }, { Name: 'Star Tours' }]
+app.factory 'AttractionFactory', ['$http', ($http) ->
+	getAttractions: ->		
+		$http.get('attractions.json')
+			.then (result) -> result.data
+]
 
 app.controller 'AttractionCtrl', ['$scope', 'AttractionFactory', ($scope, factory) ->
-	$scope.Attraction = factory.getAttractions();	
+	factory.getAttractions().then (result) ->
+		$scope.Attraction = result
 ]
